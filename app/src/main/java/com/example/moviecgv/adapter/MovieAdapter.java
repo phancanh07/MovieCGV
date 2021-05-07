@@ -59,9 +59,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
 
         if (MovieDataBase.getInstance(context).movieDAO().isCheckedMovieExit(example.getTitle())) {
             holder.like.setImageResource(R.drawable.heart);
-        } else {
-            holder.like.setImageResource(R.drawable.dis);
         }
+
         holder.cardView.setOnClickListener(onClickListener);
         holder.cardView.setTag(example.getId());
         holder.like.setOnClickListener(new View.OnClickListener() {
@@ -77,14 +76,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
                     holder.like.setImageResource(R.drawable.heart);
                     if (MovieDataBase.getInstance(context).movieDAO().checkMovie(example.getTitle()) == false) {
                         MovieDataBase.getInstance(context).movieDAO().insertMovie(favorite);
-
+                        notifyDataSetChanged();
                     }
+                    notifyDataSetChanged();
                 } else {
                     holder.like.setImageResource(R.drawable.dis);
                     MovieDataBase.getInstance(context).movieDAO().delete(example.getTitle());
                     Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show();
                 }
-
 
             }
         });

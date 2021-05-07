@@ -52,7 +52,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void getCharacter(String key) {
-        IfCasting ifCasting = ApiRetrofit.getClientDetaiCharacter().create(IfCasting.class);
+        IfCasting ifCasting = ApiRetrofit.getClient().create(IfCasting.class);
         ifCasting.getDataCasting(key).enqueue(new Callback<Characters>() {
             @Override
             public void onResponse(Call<Characters> call, Response<Characters> response) {
@@ -63,10 +63,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     recyclerViewCast.setLayoutManager(layoutManager);
                     recyclerViewCast.setHasFixedSize(true);
                     recyclerViewCast.setAdapter(characterAdapter);
-
                 }
-
-
             }
 
             @Override
@@ -93,7 +90,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void getData(String key) {
-        IfMovieDetai ifMovieDetai = ApiRetrofit.getClientDetai().create(IfMovieDetai.class);
+        IfMovieDetai ifMovieDetai = ApiRetrofit.getClient().create(IfMovieDetai.class);
         ifMovieDetai.getDataDetai(key).enqueue(new Callback<Detail>() {
             @Override
             public void onResponse(Call<Detail> call, Response<Detail> response) {
@@ -108,8 +105,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     txt_vote.setText("Vote :" + detail.getVoteAverage().toString() + "/10");
                     Picasso.get().load("http://image.tmdb.org/t/p/original" + detail.getBackdropPath()).into(img);
                     Picasso.get().load("http://image.tmdb.org/t/p/w780" + detail.getPosterPath()).into(img1);
-
-
                 }
             }
 
@@ -117,15 +112,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             public void onFailure(Call<Detail> call, Throwable t) {
                 Log.e("TAG", t.getMessage());
             }
-
-
         });
 
 
     }
 
     private void getVideo(String key) {
-        IfVideo ifVideo = ApiRetrofit.getClientVideo().create(IfVideo.class);
+        IfVideo ifVideo = ApiRetrofit.getClient().create(IfVideo.class);
         ifVideo.getDataVideo(key).enqueue(new Callback<Video>() {
             @Override
             public void onResponse(Call<Video> call, Response<Video> response) {

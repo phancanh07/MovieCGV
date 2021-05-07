@@ -6,11 +6,30 @@
     tools:context=".ui.fragment.MovieFragment">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
-        android:id="@+id/recylerView"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recylerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:nestedScrollingEnabled="false" />
+
+            <ProgressBar
+                android:id="@+id/progressBarr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ProgressBar>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </FrameLayout>

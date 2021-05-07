@@ -41,6 +41,4 @@ public class TrailerMovieActivity extends YouTubeBaseActivity implements YouTube
             Toast.makeText(this, error, Toast.LENGTH_LONG).show();
         }
     }
-
-
 }

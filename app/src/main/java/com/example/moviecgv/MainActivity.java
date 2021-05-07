@@ -4,16 +4,16 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.moviecgv.adapter.ViewPage;
+import com.example.moviecgv.adapter.ViewPageAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private ViewPageAdapter viewPageAdapter;
+    ViewPager pager;
 
 
     @Override
@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         tabLayout = findViewById(R.id.tabMode);
-        viewPager = findViewById(R.id.viewpage);
-        ViewPage viewPage = new ViewPage(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPager.setAdapter(viewPage);
-        tabLayout.setupWithViewPager(viewPager);
+        pager = findViewById(R.id.viewpage);
+        viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
+        pager.setAdapter(viewPageAdapter);
+        tabLayout.setupWithViewPager(pager);
         setupTabIcons();
     }
 

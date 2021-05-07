@@ -19,35 +19,8 @@ public class ApiRetrofit {
         return retrofit;
     }
 
-    public static Retrofit getClientDetai() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
 
-        return retrofit;
-    }
-    public static Retrofit getClientDetaiCharacter() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
 
-        return retrofit;
-    }
-    public static Retrofit getClientVideo() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
 
-        return retrofit;
-    }
 
 }

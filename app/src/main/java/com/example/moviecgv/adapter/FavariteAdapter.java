@@ -23,7 +23,6 @@ public class FavariteAdapter extends RecyclerView.Adapter<FavariteAdapter.Favari
     View.OnClickListener onClickListener;
 
 
-
     public FavariteAdapter(List<Favorite> favorites, Context context, View.OnClickListener onClickListener) {
         this.favorites = favorites;
         this.context = context;
@@ -47,7 +46,6 @@ public class FavariteAdapter extends RecyclerView.Adapter<FavariteAdapter.Favari
         holder.txt_views.setText(example.getPopularity());
         Picasso.get().load("http://image.tmdb.org/t/p/w500" + example.getPosterPath()).into(holder.img);
         holder.cardView.setTag(example);
-
     }
 
 
@@ -58,7 +56,6 @@ public class FavariteAdapter extends RecyclerView.Adapter<FavariteAdapter.Favari
         } else {
             return 0;
         }
-
     }
 
 
@@ -78,7 +75,9 @@ public class FavariteAdapter extends RecyclerView.Adapter<FavariteAdapter.Favari
             cardView = itemView.findViewById(R.id.cardView1);
         }
 
+
     }
+
     public void setData(List<Favorite> favoriteList) {
         this.favorites = favoriteList;
         notifyDataSetChanged();

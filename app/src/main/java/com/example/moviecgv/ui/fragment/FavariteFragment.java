@@ -65,8 +65,6 @@ public class FavariteFragment extends Fragment implements View.OnClickListener {
         recyclerView.setHasFixedSize(true);
         movieAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(movieAdapter);
-
-
     }
 
 }

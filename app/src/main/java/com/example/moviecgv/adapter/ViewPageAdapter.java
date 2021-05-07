@@ -10,10 +10,10 @@ import com.example.moviecgv.ui.fragment.AboutFragment;
 import com.example.moviecgv.ui.fragment.FavariteFragment;
 import com.example.moviecgv.ui.fragment.MovieFragment;
 
-public class ViewPage extends FragmentStatePagerAdapter {
+public class ViewPageAdapter extends FragmentStatePagerAdapter {
 
-    public ViewPage(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
+    public ViewPageAdapter(@NonNull FragmentManager fm) {
+        super(fm);
     }
 
     @Nullable

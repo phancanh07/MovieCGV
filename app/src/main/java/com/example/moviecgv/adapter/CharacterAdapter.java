@@ -39,7 +39,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
         Log.d("TAG", "TNV" + character.getOriginalName());
         holder.namecharacter.setText(character.getCharacter());
         holder.name.setText(character.getOriginalName());
-        Picasso.get().load("http://image.tmdb.org/t/p/w500" + character.getProfilePath()).into(holder.img);
+
+        if (details.get(position).getProfilePath() != null) {
+            Picasso.get().load("http://image.tmdb.org/t/p/w500" + character.getProfilePath()).into(holder.img);
+        } else {
+            Picasso.get().load("https://lh3.googleusercontent.com/proxy/t-UEhlXrp5lABcbKW1md_JlBYX0YTnFHIkalYAhEu8csVw77hBiQhDvia1EeVkIJ6q8H2gh5N5iIamTNufWG3ZgZ4BXMBnvi60VhqSdb05C9hNuw").into(holder.img);
+        }
 
     }
 
